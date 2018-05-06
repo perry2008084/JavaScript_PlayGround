@@ -33,3 +33,7 @@ tr:nth-child(even) { background-color: #fff; }
 /*tr:hover {
   font-weight: bold;
 }*/
+
+.odd {
+  background-color: #ffc;
+}
