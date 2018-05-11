@@ -1,6 +1,6 @@
 function prepareSlideshow() {
   // Make sure the browser understands the DOM methods
-  if (!document.getElementByTagName) return false;
+  if (!document.getElementsByTagName) return false;
   if (!document.getElementById) return false;
   // Make sure the elements exist
   if (!document.getElementById("linklist")) return false;
