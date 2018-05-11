@@ -4,14 +4,16 @@ function prepareSlideshow() {
   if (!document.getElementById) return false;
   // Make sure the elements exist
   if (!document.getElementById("linklist")) return false;
-  if (!document.getElementById("preview")) return false;
-  // Apply styles to the previce image
-  var preview = document.getElementById("preview");
-  preview.style.position = "absolute";
-  preview.style.left = "0px";
-  preview.style.top = "0px";
-  // Get all the links in the list
+  var slideshow = document.createElement("div");
+  slideshow.setAttribute("id", "slideshow");
+  var preview = document.createElement("img");
+  preview.setAttribute("src", "images/topics.gif");
+  preview.setAttribute("alt", "building blocks of web design");
+  preview.setAttribute("id", "preview");
+  slideshow.appendChild(preview);
   var list = document.getElementById("linklist");
+  insertAfter(slideshow, list);
+  // Get all the links in the list
   var links = list.getElementsByTagName("a");
   // Attach the animation behavior to the mouseover event
   links[0].onmouseover = function() {
