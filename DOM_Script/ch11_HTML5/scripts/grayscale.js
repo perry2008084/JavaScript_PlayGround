@@ -1,6 +1,6 @@
 function convertToGS(img) {
   // For good measure return if canvas isn't supported.
-  if (!Modernizr.canvas) return;
+  //if (!Modernizr.canvas) return;
 
   // Store the original color version
   img.color = img.src;
@@ -15,6 +15,7 @@ function convertToGS(img) {
 
   img.onmouseout = function() {
     this.src = this.grayscale;
+
   }
 
   img.onmouseout();
@@ -41,7 +42,7 @@ function createGSCanvas(img) {
     }
   }
 
-  ctx.putImageDate(c, 0, 0, 0, c.width, c.height);
+  ctx.putImageData(c, 0, 0, 0, 0, c.width, c.height);
 
   return canvas.toDataURL();
 }
