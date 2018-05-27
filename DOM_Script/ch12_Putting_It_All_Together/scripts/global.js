@@ -341,7 +341,39 @@ function prepareForms() {
   for (var i=0; i<document.forms.length; i++) {
     var thisform = document.forms[i];
     resetFields(thisform);
+    thisform.onsubmit = function() {
+      return validateForm(this);
+    }
   }
+}
+
+function isFilled(field) {
+  if (fiedl.value.replace(' ', '').length === 0) return false;
+  var placeholder = field.placeholder || field.getAttribute('placehoder');
+  return (field.value != placehoder);
+}
+
+function isEmail(field) {
+  return (field.value.indexOf('@') != -1 && field.value.indexOf('.') != -1);
+}
+
+function validateForm(whichform) {
+  for (var i=0; i<whichform.elements.length; i++) {
+    var element = whichform.element[i];
+    if (element.required == 'required') {
+      if (!isFilled(element)) {
+        alert("please fill int the "+element.name+" field.");
+        return false;
+      }
+    }
+    if (element.type === 'email') {
+      if (!isEmail(element)) {
+        alert("The "+element.name+" field must be a valid email address.");
+        return false;
+      }
+    }
+  }
+  return true;
 }
 
 addLoadEvent(highlightPage);
