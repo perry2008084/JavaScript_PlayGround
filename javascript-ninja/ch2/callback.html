@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>callback</title>
+  <link rel="stylesheet" href="../assert/assert.css">
+  <script src="../assert/assert.js"></script>
+</head>
+<body>
+  <ul id="results"></ul>
+
+  <script>
+    function useless(ninjaCallback) {
+      return ninjaCallback();
+    }
+
+    function getText() {
+      report('in getText function');
+      return text;
+    }
+
+    var text = 'Domo arigato!';
+    report('before making all the calls');
+    assert(useless(getText) === text, 'The useless function works! ' + text);
+    report('after the calls have been made');
+  </script>
+
+</body>
+</html>
