@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>arrow function</title>
+    <link rel="stylesheet" href="../assert/assert.css">
+    <script src="../assert/assert.js"></script>
+  </head>
+  <body>
+    <ul id="results"></ul>
+
+    <script>
+      var values = [0, 3, 2, 5, 7, 4, 8, 1];
+      values.sort(function(value1, value2) { return value1 - value2; });
+      values.sort((value1, value2) => value1 -value2);
+    </script>
+
+    <script>
+      var greet = name => 'Greetings ' + name;
+      assert(greet('Oishi') === 'Greetings Oishi', 'Oishi is properly greeted');
+
+      var anotherGreet = function(name) {
+        return 'Greetings ' + name;
+      };
+      assert(anotherGreet('Oishi') === 'Greetings Oishi', 'Again, Oishi is properly greeted');
+    </script>
+  </body>
+</html>

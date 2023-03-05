@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>store function</title>
+    <link rel="stylesheet" href="../assert/assert.css" />
+    <script src="../assert/assert.js"></script>
+  </head>
+  <body>
+    <ul id="results"></ul>
+  
+    <script>
+      var store = {
+        nextId: 1,
+        cache: {},
+        add: function (fn) {
+          if (!fn.id) {
+            fn.id = this.nextId++;
+            this.cache[fn.id] = fn;
+            return true;
+          }
+        },
+      };
+
+      function ninja() {}
+
+      assert(store.add(ninja), "Function was safely added.");
+      assert(!store.add(ninja), "But it was only added once.");
+    </script>
+  </body>
+</html>

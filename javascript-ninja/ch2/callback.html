@@ -27,5 +27,12 @@
     report('after the calls have been made');
   </script>
 
+  <script>
+    var values = [0, 3, 2, 5, 7, 4, 8, 1];
+    console.log('v1: ', values);
+    values.sort(function(value1, value2) { return value1 - value2; });
+    console.log('v2: ', values);
+  </script>
+
 </body>
 </html>
